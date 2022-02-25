@@ -44,19 +44,20 @@ service docker start
 service jenkins restart
 
 # install pip
-wget -q https://bootstrap.pypa.io/get-pip.py
-python get-pip.py
+wget -q https://bootstrap.pypa.io/pip/3.5/get-pip.py
+# wget -q https://bootstrap.pypa.io/get-pip.py
+# python get-pip.py
 python3 get-pip.py
 rm -f get-pip.py
 # install awscli
 pip install awscli
 
 # install terraform
-TERRAFORM_VERSION="0.12.18"
+TERRAFORM_VERSION="1.1.6"
 wget -q https://releases.hashicorp.com/terraform/$${TERRAFORM_VERSION}/terraform_$${TERRAFORM_VERSION}_linux_amd64.zip \
 && unzip -o terraform_$${TERRAFORM_VERSION}_linux_amd64.zip -d /usr/local/bin \
 && rm terraform_$${TERRAFORM_VERSION}_linux_amd64.zip
 
 # clean up
 apt-get clean
-rm terraform_0.12.18_linux_amd64.zip
+rm terraform_1.1.6_linux_amd64.zip
